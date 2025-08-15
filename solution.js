@@ -34,7 +34,7 @@ function bestTeam(player1, player2) {
     }
 }
 
-// problem-03 solution
+// problem-04 solution
 function isSame(arr1, arr2) {
     if (!Array.isArray(arr1) || !Array.isArray(arr2)) {
         return "Invalid";
@@ -50,4 +50,34 @@ function isSame(arr1, arr2) {
         }
     }
     return true;
+}
+
+// problem-04 solution
+function resultReport(marks) {
+    if (!Array.isArray(marks)) return "Invalid";
+
+    if (marks.length === 0) {
+        return { finalScore: 0, pass: 0, fail: 0 };
+    }
+
+    let total = 0;
+    let pass = 0;
+    let fail = 0;
+
+    for (let i = 0; i < marks.length; i++) {
+        total += marks[i];
+        if (marks[i] >= 40) {
+            pass++;
+        } else {
+            fail++;
+        }
+    }
+
+    let finalScore = Math.round(total / marks.length);
+
+    return {
+        finalScore: finalScore,
+        pass: pass,
+        fail: fail
+    };
 }
